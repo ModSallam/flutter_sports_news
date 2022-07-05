@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sports_news_bloc_app/logic/logic.dart';
 import 'package:sports_news_bloc_app/presentation/presentation.dart';
 
-class NewsScreen extends StatelessWidget {
-  const NewsScreen({Key? key}) : super(key: key);
+class StandingsScreen extends StatelessWidget {
+  const StandingsScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,25 +17,18 @@ class NewsScreen extends StatelessWidget {
           padding: const EdgeInsets.all(20),
           color: Colors.amber,
           child: const Text(
-            'News',
+            'Standings',
             style: TextStyle(color: Colors.black),
           ),
         ),
       ),
-      body: BlocBuilder<NewsBloc, NewsState>(
+      body: BlocBuilder<StandingsBloc, StandingsState>(
         builder: (context, state) {
-          if (state is NewsLoading) {
+          if (state is StandingsLoading) {
             return const LoadingContainer();
           }
-          if (state is NewsLoaded) {
-            return Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: ListView.builder(
-                itemCount: state.articles.length,
-                itemBuilder: (context, index) =>
-                    NewsCard(article: state.articles[index]),
-              ),
-            );
+          if (state is StandingsLoaded) {
+            return StandingsContainer(standings: state.standings);
           } else {
             return const ErrorContainer();
           }

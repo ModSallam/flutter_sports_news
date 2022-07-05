@@ -17,6 +17,7 @@ void main() {
     await tester.pumpWidget(
       MyApp(
         newsRepository: NewsRepository(),
+        sportsRepository: SportsRepository(),
       ),
     );
 

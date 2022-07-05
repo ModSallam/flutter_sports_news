@@ -18,7 +18,7 @@ class NewsCard extends StatelessWidget {
         onTap: () => Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => NewsScreen(article: article),
+            builder: (context) => NewsDetailsScreen(article: article),
           ),
         ),
         child: Container(
