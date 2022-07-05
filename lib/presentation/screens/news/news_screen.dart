@@ -58,6 +58,7 @@ class NewsScreen extends StatelessWidget {
                   const SizedBox(height: 10),
                   GestureDetector(
                     onTap: () {
+                      debugPrint('tapped');
                       if (Platform.isAndroid) {
                         FlutterWebBrowser.openWebPage(
                           url: article.url,

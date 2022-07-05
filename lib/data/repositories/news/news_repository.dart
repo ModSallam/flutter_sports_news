@@ -8,7 +8,8 @@ class NewsRepository {
   final String apiKey = 'da459aa5684f45088d628b130a6e75b7';
 
   Future<List<ArticleModel>> getNews() async {
-    final url = Uri.parse('$baseUrl/everything?q=bitcoin&apiKey=$apiKey');
+    final url = Uri.parse(
+        '$baseUrl/top-headlines?country=eg&category=sports&apiKey=$apiKey');
 
     final response = await http.get(url);
 
@@ -18,6 +19,17 @@ class NewsRepository {
 
     final List<ArticleModel> news = data.articles;
 
-    return news;
+    List<ArticleModel> filteredNews = [];
+
+    for (var element in news) {
+      if (element.source!.name == "Youm7.com" ||
+          element.source!.name == "Yallakora.com" ||
+          element.source!.name == "Elwatannews.com") {
+      } else {
+        filteredNews.add(element);
+      }
+    }
+
+    return filteredNews;
   }
 }
