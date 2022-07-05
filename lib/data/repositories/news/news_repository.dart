@@ -7,7 +7,7 @@ class NewsRepository {
   final String baseUrl = 'https://newsapi.org/v2';
   final String apiKey = 'da459aa5684f45088d628b130a6e75b7';
 
-  Future<List<ArticleModel>> getNews() async {
+  Future<List<ArticleModel>> getEGSportsNews() async {
     final url = Uri.parse(
         '$baseUrl/top-headlines?country=eg&category=sports&apiKey=$apiKey');
 
