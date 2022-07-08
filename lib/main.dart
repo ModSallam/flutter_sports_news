@@ -46,6 +46,9 @@ class MyApp extends StatelessWidget {
                 StandingsBloc(sportsRepository: sportsRepository)
                   ..add(GetStandings()),
           ),
+          BlocProvider(
+            create: (context) => TeamBloc(sportsRepository: sportsRepository),
+          ),
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,

@@ -9,19 +9,7 @@ class StandingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0.0,
-        backgroundColor: Colors.transparent,
-        centerTitle: true,
-        title: Container(
-          padding: const EdgeInsets.all(20),
-          color: Colors.amber,
-          child: const Text(
-            'Standings',
-            style: TextStyle(color: Colors.black),
-          ),
-        ),
-      ),
+      appBar: const CustomAppBar(title: 'Standings'),
       body: BlocBuilder<StandingsBloc, StandingsState>(
         builder: (context, state) {
           if (state is StandingsLoading) {

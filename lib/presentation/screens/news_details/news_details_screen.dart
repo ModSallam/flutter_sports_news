@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_web_browser/flutter_web_browser.dart';
 import 'package:sports_news_bloc_app/data/data.dart';
+import 'package:sports_news_bloc_app/presentation/presentation.dart';
 
 class NewsDetailsScreen extends StatelessWidget {
   final ArticleModel article;
@@ -16,10 +17,7 @@ class NewsDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        elevation: 0.0,
-        backgroundColor: Colors.transparent,
-      ),
+      appBar: const BasicAppBar(),
       body: Column(
         children: [
           Container(

@@ -8,19 +8,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0.0,
-        backgroundColor: Colors.transparent,
-        centerTitle: true,
-        title: Container(
-          padding: const EdgeInsets.all(20),
-          color: Colors.amber,
-          child: const Text(
-            'Fire Sports News',
-            style: TextStyle(color: Colors.black),
-          ),
-        ),
-      ),
+      appBar: const CustomAppBar(title: 'Fire Sports News'),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: ListView(

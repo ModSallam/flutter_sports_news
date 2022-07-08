@@ -9,19 +9,7 @@ class NewsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0.0,
-        backgroundColor: Colors.transparent,
-        centerTitle: true,
-        title: Container(
-          padding: const EdgeInsets.all(20),
-          color: Colors.amber,
-          child: const Text(
-            'News',
-            style: TextStyle(color: Colors.black),
-          ),
-        ),
-      ),
+      appBar: const CustomAppBar(title: 'News'),
       body: BlocBuilder<NewsBloc, NewsState>(
         builder: (context, state) {
           if (state is NewsLoading) {

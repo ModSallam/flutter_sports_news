@@ -45,15 +45,35 @@ class SportsRepository {
     return fixtures;
   }
 
-  Future<bool> checkUrlStatus(String uri) async {
-    final url = Uri.parse(uri);
+  Future<List<TeamResult>> getTeamData(String teamId) async {
+    final url = Uri.parse('${baseUrl}Teams&teamId=$teamId&APIkey=$apiKey');
 
     final response = await http.get(url);
 
-    if (response.statusCode != 200) {
-      return false;
+    debugPrint('getTeamData response statuscode: ${response.statusCode}');
+
+    final json = jsonDecode(response.body);
+
+    final TeamResponse data = TeamResponse.fromMap(json);
+
+    final List<TeamResult> results = data.result;
+
+    return results;
+  }
+
+  Future<bool> checkUrlStatus(String? uri) async {
+    if (uri != null) {
+      final url = Uri.parse(uri);
+
+      final response = await http.get(url);
+
+      if (response.statusCode == 200) {
+        return true;
+      } else {
+        return false;
+      }
     } else {
-      return true;
+      return false;
     }
   }
 }

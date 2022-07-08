@@ -4,3 +4,6 @@ export 'loading/loading_container.dart';
 export 'standings_container/standings_container.dart';
 export 'standings_team_card/standings_team_card.dart';
 export 'image_card/image_card.dart';
+export 'fixtures_item_card/fixtures_item_card.dart';
+export 'app_bar/custom_app_bar.dart';
+export 'basic_app_bar/basic_app_bar.dart';
